@@ -20,7 +20,7 @@ CREATE TABLE usuario (
 
 # Valor do id_comunidade vai ser adicionado pelo JDBC
 # Uusario cria conta -> JDBC salva valores em variáveis -> JDBC insere variáveis em 'usuario'
-INSERT INTO usuario(nome, email, senha, id_comunidade) VALUES("Teste", "teste@", "123", "1");
+INSERT INTO usuario(nome, email, senha, id_comunidade) VALUES("Eduardo", "email@g.com", "123", "1");
 
 # Postagens vão possuir tags sobre os locais ou temas que estão relacionados a postagem.
 # O usuário pode criar uma tag nova ao adicioná-la a uma postagem
@@ -44,7 +44,7 @@ CREATE TABLE postagem (
     FOREIGN KEY (id_comunidade) REFERENCES comunidade(id_comunidade)
 );
 
-INSERT INTO postagem(titulo, texto, id_tag, id_usuario, id_comunidade) VALUES("Postagem", "Isso é uma postagem", "1", "1", "1")
+INSERT INTO postagem(titulo, texto, id_tag, id_usuario, id_comunidade) VALUES("Postagem", "Isso é uma postagem", "1", "1", "1");
 
 SELECT u.id_usuario, u.nome, u.email, u.senha, u.id_comunidade, c.uf, c.cidade, c.bairro
 FROM usuario u
@@ -52,7 +52,11 @@ INNER JOIN comunidade c
 ON u.id_comunidade = c.id_comunidade;
 
 # 'IF' a tag for nacional não vai incluir a comunidade da postagem
-SELECT p.id_postagem, p.titulo, p.texto, t.nome, u.nome, c.uf, c.cidade, c.bairro
+SELECT p.id_postagem, p.titulo, p.texto, t.nome AS tag, u.nome AS usuario, c.uf, c.cidade, c.bairro
 FROM postagem p
-INNER JOIN tag t, usuario u, comunidade c
-ON p.id_tag = t.id_tag, p.nome = u.nome;
+INNER JOIN tag t
+ON p.id_tag = t.id_tag
+INNER JOIN usuario u
+ON p.id_usuario = u.id_usuario
+INNER JOIN comunidade c
+ON p.id_comunidade = c.id_comunidade;
