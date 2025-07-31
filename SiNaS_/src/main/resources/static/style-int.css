@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.tela {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* TOPO */
+.top-bar {
+    height: 60px;
+    width: 100%;
+    background-color: #360063;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    flex: 1;
+    font-weight: bold;
+}
+
+.auth-buttons button {
+    margin-left: 5px;
+    padding: 6px 12px;
+    border: none;
+    background-color: white;
+    color: #4b0050;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.auth-buttons button:hover {
+    background-color: #6a2a8a;
+    color: white;
+}
+
+/* MAIN STRUCTURE */
+main {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #ffffff;
+    color: #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.profile-pic {
+    background-color: #ccc;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-info .input-box {
+    background-color: #ddd;
+    height: 30px;
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 6px;
+}
+
+.round-button {
+    background-color: #bb66ff;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-top: auto;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.round-button:hover {
+    background-color: #991aff;
+}
+
+/* FEED AREA */
+.feed-area {
+    flex: 1;
+    padding: 100px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CAMPO DE PESQUISA FORA DA TOP BAR */
+.search-container {
+    margin-bottom: 15px;
+}
+
+.feed-area .search {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin-left: 25%;
+}
+
+/* BOTÕES DE FILTRO */
+.filter-buttons {
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    margin-left: 30%;
+}
+
+.filter-buttons button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover {
+    background-color: #4B0082;
+    color: white;
+}
+
+/* POSTS */
+.posts-grid {
+    margin-top: 5%;
+    column-count: 3;
+    column-gap: 20px;
+}
+
+.post {
+    background-color: #d0d0d0;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    break-inside: avoid;
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+    padding: 1rem;
+}
+
+/* Botão flutuante */
+.float-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #6a1b9a;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* Janela de post */
+.post-box {
+    position: fixed;
+    top: 40%;
+    bottom: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 40%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    padding: 1rem;
+    z-index: 9;
+}
+
+.post-box textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    font-size: 1rem;
+    outline: none;
+    height: 100px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+}
+
+.icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background: #ccc;
+    border: none;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    .posts-grid {
+        column-count: 2;
+    }
+    .sidebar {
+        width: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        padding: 10px;
+        overflow-x: auto;
+    }
+
+    .profile-pic {
+        height: 60px;
+        width: 60px;
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+
+    .profile-info {
+        display: flex;
+        flex: 1;
+        gap: 10px;
+    }
+
+    .profile-info .input-box {
+        height: 25px;
+        margin-bottom: 0;
+    }
+
+    .feed-area {
+        padding: 10px;
+    }
+
+    .posts-grid {
+        column-count: 1;
+    }
+}
