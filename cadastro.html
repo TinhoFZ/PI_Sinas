@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Conta</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sign-box { display: none; }
+    .sign-box.ativo { display: block; }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <img src="" alt="">
+  </div>
+
+  <div class="tela">
+    <div class="parte-superior"></div>
+    <div class="parte-inferior"></div>
+
+    <!-- Bloco 1 -->
+    <div class="sign-box ativo" id="sign-box">
+      <h2>Criar conta</h2>
+      <form onsubmit="substituirBloco(event)">
+        <label for="Email">E-mail</label>
+        <input type="text" id="Email" name="Email" required>
+
+        <label for="Telefone">Telefone</label>
+        <input type="text" id="Telefone" name="Telefone" required>
+
+        <label for="Username">Usuário</label>
+        <input type="text" id="Username" name="Username" required>
+
+        <button type="submit">Próximo</button>
+      </form>
+      <center>
+        <p>ou</p>
+        <a href="Login.html">Entrar com conta</a>
+      </center>
+    </div>
+
+    <!-- Bloco 2 -->
+    <div class="sign-box" id="bloco2">
+      <h2>Selecione sua comunidade</h2>
+      <form onsubmit="substituirPorTerceiro(event)">
+        <label for="Uf">UF</label>
+        <input list="Estados" id="uf" name="uf" required>
+        <datalist id="Estados">
+          <option value="SP">
+          <option value="RJ">
+        </datalist>
+
+        <label for="Cidade">Cidade</label>
+        <input list="Cidades" id="Cidade" name="Cidade" required>
+        <datalist id="Cidades">
+          <option value="São Paulo">
+          <option value="Rio de Janeiro">
+        </datalist>
+
+        <label for="Comunidade">Comunidade</label>
+        <input list="Comunidades" id="Comunidade" name="Comunidade" required>
+        <datalist id="Comunidades">
+          <option value="Comunidade A">
+          <option value="Comunidade B">
+        </datalist>
+
+        <button type="submit">Próximo</button>
+      </form>
+    </div>
+
+    <!-- Bloco 3 -->
+    <div class="sign-box" id="bloco3">
+      <h2>Finalizar Cadastro</h2>
+      <form onsubmit="finalizarCadastro(event)">
+        <label for="Senha">Senha</label>
+        <input type="password" id="Senha" name="Senha" required>
+
+        <label for="ConfirmarSenha">Confirmar Senha</label>
+        <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" required>
+
+        <button type="submit">Finalizar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
