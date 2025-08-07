@@ -1,0 +1,120 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+
+    .tela {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+
+    .top-bar{
+        height: 5%;
+        width: 100%;
+        background-color: #360063;
+    }
+
+
+    .parte-superior {
+      height: 55%;
+      background-color: #4B0082;
+    }
+
+
+    .parte-inferior {
+      height: 35%;
+      background-color: #ffffff;
+    }
+
+
+    .login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      width: 20%;
+      height: 50%;
+      z-index: 10;
+    }
+
+
+    .login-box h2, .sign-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4B0082;
+    }
+
+
+    .login-box label, .sign-box label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+
+    .login-box input[type="text"],
+    .login-box input[type="Password"],
+    .sign-box input[type="text"],
+    .sign-box input[type="Password"],
+    .sign-box input[list="Cidades"],
+    .sign-box input[list="Comunidades"],
+    .sign-box input[list="Estados"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+
+    .login-box button, .sign-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4B0082;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 4%;
+    }
+
+
+    .login-box button:hover, .sign-box button:hover {
+      background-color: #360063;
+    }
+
+
+  .sign-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      width: 50vh;
+      height: 70vh;
+      z-index: 10;
+    }
+
+
+    p{
+        margin-top: 5%;
+    }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feed Base</title>
+  <link rel="stylesheet" href="assets/css/ind.css" />
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="logo">Logo</div>
+      <div class="auth-buttons">
+        <a href="Login.html"><button>Login</button></a>
+        <a href="Cadastro.html"><button>Cadastro</button></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <div class="profile-pic"></div>
+      <div class="profile-info">
+        <div class="input-box"></div>
+        <div class="input-box"></div>
+        <div class="input-box"></div>
+        <div class="input-box"></div>
+        <div class="input-box"></div>
+      </div>
+      <div class="round-button"></div>
+    </aside>
+
+    <section class="feed-area">
+      <!-- NOVO: campo de busca fora da top-bar -->
+      <div class="search-container">
+        <input type="text" class="search" placeholder="Pesquisar..." />
+      </div>
+
+      <div class="filter-buttons">
+        <button>Todos</button>
+        <button>Texto</button>
+        <button>Imagem</button>
+        <button>Vídeo</button>
+      </div>
+
+      <div class="posts-grid">
+        <div class="post" data-type="texto" style="height: 180px;"></div>
+        <div class="post" data-type="imagem" style="height: 150px;"></div>
+        <div class="post" data-type="video" style="height: 200px;"></div>
+        <div class="post" data-type="texto" style="height: 160px;"></div>
+        <div class="post" data-type="imagem" style="height: 220px;"></div>
+        <div class="post" data-type="video" style="height: 140px;"></div>
+      </div>
+       <div class="container">
+    <!-- Botão flutuante -->
+    <button id="postBtn" class="float-btn">+</button>
+
+    <!-- Janela de criação de post -->
+    <div id="postBox" class="post-box hidden">
+    <form action="postagem.php" method="post">  
+      <textarea placeholder="Escreva o título da postagem aqui" name="titulo"></textarea>
+      <textarea placeholder="Escreva seu texto aqui" name="texto"></textarea>
+      <div class="icons">
+        <i class="icon">📎</i>
+        <i class="icon">🖼️</i>
+        <i class="icon">🔤</i>
+        <i class="icon">⚠️</i>
+      </div>
+      <button class="submit-btn">Postar</button>
+    </form>
+  </div>
+    </section>
+  </main>
+
+  <script src="assets/js/ind.js"></script>
+</body>
+</html>

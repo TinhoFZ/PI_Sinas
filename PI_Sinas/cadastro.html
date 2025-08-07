@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criar Conta</title>
+  <link rel="stylesheet" href="assets/css/cadlog.css" />
+  <style>
+    .sign-box { display: none; }
+    .sign-box.ativo { display: block; }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <img src="" alt="">
+  </div>
+
+  <div class="tela">
+    <div class="parte-superior"></div>
+    <div class="parte-inferior"></div>
+
+    <form action="cadastro.php" method="post" onsubmit="return finalizarCadastro(event)">
+      
+      <!-- Bloco 1 -->
+      <div class="sign-box ativo" id="bloco1">
+        <h2>Criar conta</h2>
+        <label for="email">E-mail</label>
+        <input type="text" id="email" name="email" required>
+
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" name="telefone" required>
+
+        <label for="nome">Usuário</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <button type="button" onclick="substituirBloco()">Próximo</button>
+
+        <center>
+          <p>ou</p>
+          <a href="Login.html">Entrar com conta</a>
+        </center>
+      </div>
+
+      <!-- Bloco 2 -->
+      <div class="sign-box" id="bloco2">
+        <h2>Selecione sua comunidade</h2>
+
+        <label for="uf">UF</label>
+        <input list="Estados" id="uf" name="uf" required>
+        <datalist id="Estados">
+          <option value="SP">
+          <option value="RJ">
+        </datalist>
+
+        <label for="cidade">Cidade</label>
+        <input list="Cidades" id="cidade" name="cidade" required>
+        <datalist id="Cidades">
+          <option value="São Paulo">
+          <option value="Rio de Janeiro">
+        </datalist>
+
+        <label for="bairro">Bairro</label>
+        <input list="bairros" id="bairro" name="bairro" required>
+        <datalist id="bairros">
+          <option value="bairro A">
+          <option value="bairro B">
+        </datalist>
+
+        <button type="button" onclick="substituirPorTerceiro()">Próximo</button>
+        <button type="button" onclick="voltarParaBloco1()">Voltar</button>
+      </div>
+
+      <!-- Bloco 3 -->
+      <div class="sign-box" id="bloco3">
+        <h2>Finalizar Cadastro</h2>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <label for="ConfirmarSenha">Confirmar Senha</label>
+        <input type="password" id="ConfirmarSenha" name="ConfirmarSenha" required>
+
+        <button type="submit">Finalizar</button>
+        <button type="button" onclick="voltarParaBloco2()">Voltar</button>
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    function substituirBloco() {
+      document.getElementById('bloco1').classList.remove('ativo');
+      document.getElementById('bloco2').classList.add('ativo');
+    }
+
+    function substituirPorTerceiro() {
+      document.getElementById('bloco2').classList.remove('ativo');
+      document.getElementById('bloco3').classList.add('ativo');
+    }
+
+    function voltarParaBloco1() {
+      document.getElementById('bloco2').classList.remove('ativo');
+      document.getElementById('bloco1').classList.add('ativo');
+    }
+
+    function voltarParaBloco2() {
+      document.getElementById('bloco3').classList.remove('ativo');
+      document.getElementById('bloco2').classList.add('ativo');
+    }
+
+    function finalizarCadastro(event) {
+      const senha = document.getElementById('Senha').value;
+      const confirmar = document.getElementById('ConfirmarSenha').value;
+
+      if (senha !== confirmar) {
+        alert("As senhas não coincidem.");
+        event.preventDefault();
+        return false;
+      }
+
+      // Se tudo estiver certo, o formulário é enviado
+      return true;
+    }
+  </script>
+</body>
+</html>
